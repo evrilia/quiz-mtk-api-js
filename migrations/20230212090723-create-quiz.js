@@ -34,7 +34,7 @@ module.exports = {
       },
       kategoriId: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
