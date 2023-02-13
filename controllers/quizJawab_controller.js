@@ -34,6 +34,7 @@ exports.many = async (req, res) => {
     const { id, jawab } = req.body
     try {
         let benar = 0
+        let salah = 0
         for (let i = 0; i < id.length; i++) {
             const quizs = await quiz.findOne({
                 where: { id: id[i] }
@@ -49,7 +50,7 @@ exports.many = async (req, res) => {
         res.status(200).json({
             message: 'jawaban benar',
             review: `quizId: ${id}, jawaban: ${jawab}`,
-            Benar:` ${benar} dari ${id.length}`,
+            Benar:` ${benar} dari ${id.length}`
         });
     } catch (error) {
         res.status(500).json({ error: error.message });
