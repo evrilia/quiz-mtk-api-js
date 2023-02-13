@@ -33,7 +33,7 @@ db.quiz = require('./quiz')(sequelize, Sequelize);
 db.materi = require('./materi')(sequelize, Sequelize);
 
 db.quiz.belongsTo(db.kategori , {foreignKey: 'kategoriId', as: 'kategori'});
-db.kategori.hasMany(db.quiz);
+db.kategori.hasMany(db.quiz,);
 db.materi.belongsTo(db.kategori , {foreignKey: 'kategoriId', as: 'kategori'});
 db.kategori.hasMany(db.materi);
 

@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     kategoriId: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
 
   },
