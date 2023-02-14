@@ -1,4 +1,3 @@
-const { BelongsTo, HasMany } = require('sequelize');
 const Sequelize = require('sequelize');
 const {development, test,production} = require('../config/config.json')
 
@@ -31,8 +30,13 @@ db.sequelize = sequelize;
 
 db.kategori = require('./kategori')(sequelize, Sequelize);
 db.quiz = require('./quiz')(sequelize, Sequelize);
+db.materi = require('./materi')(sequelize, Sequelize);
 
-db.quiz = BelongsTo(db.kategori);
-db.kategori = HasMany(db.quiz);
+db.quiz.belongsTo(db.kategori , {foreignKey: 'kategoriId', as: 'kategori'});
+db.kategori.hasMany(db.quiz);
+db.materi.belongsTo(db.kategori , {foreignKey: 'kategoriId', as: 'kategori'});
+db.kategori.hasMany(db.materi);
+
+
 
 module.exports = db;

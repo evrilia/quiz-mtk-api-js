@@ -2,17 +2,33 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Kategoris', {
+    await queryInterface.createTable('Materis', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nama: {
+      judul: {
         type: Sequelize.STRING,
         allowNull: false,
-
+        message: 'Judul tidak boleh kosong'
+      },
+      materi: {
+        type: Sequelize.TEXT,
+        allowNull: false,
+        message: 'Materi tidak boleh kosong',
+        min: 10
+      },
+      kategoriId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'Kategoris',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -25,6 +41,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Kategoris');
+    await queryInterface.dropTable('Materis');
   }
 };
