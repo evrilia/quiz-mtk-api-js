@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      key: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       kategoriId: {
         type: Sequelize.STRING,
         allowNull: false,

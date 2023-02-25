@@ -11,12 +11,14 @@ exports.jawab = async (req, res) => {
             if (quizs.jawab === jawab) {
                 res.status(200).json({
                     message: 'jawaban benar',
-                    quiz: `quizId: ${id}, jawaban: ${quizs.jawab}`
+                    jawaban: `quizId: ${id}, jawaban: ${quizs.key}`,
+                    pembahasan: `pembahasan: ${quizs.jawab}`
                 });
             } else {
                 res.status(200).json({
                     message: 'jawaban salah',
-                    jawaban: `quizId: ${id}, jawaban: ${quizs.jawab}`
+                    jawaban: `quizId: ${id}, jawaban: ${quizs.key}`,
+                    pembahasan: `pembahasan: ${quizs.jawab}`
                 });
             }
         } else {

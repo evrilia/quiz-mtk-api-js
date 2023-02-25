@@ -35,6 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    key: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     kategoriId: {
       type: DataTypes.STRING,
       allowNull: false,
