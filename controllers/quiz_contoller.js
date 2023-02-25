@@ -129,7 +129,7 @@ exports.destroy = async (req, res) => {
     });
     try{
         if (deleted) {
-            res.status(204).json({ message: 'quiz deleted' });
+            res.status(200).json({ message: 'quiz deleted' });
         } else {
             res.status(404).json({ message: 'quiz not found' });
         }
